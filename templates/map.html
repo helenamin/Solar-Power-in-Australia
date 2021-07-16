@@ -18,22 +18,21 @@
 
 <body>
 <!-- Navigation bar -->
-<br>
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
        
     <ul class="nav nav-tabs w-100 nav-justified">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Dashboard</a>
+          <a class="nav-link" href="{{ url_for('home')}}">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="map.html">Map</a>
+          <a class="nav-link" href="{{ url_for('national')}}">National</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link active" href="{{ url_for('map')}}">Map</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Others</a>
+          <a class="nav-link" href="{{ url_for('about')}}">About</a>
         </li>
       </ul>
   </nav>
