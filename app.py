@@ -191,14 +191,14 @@ def suburbs():
 
     """Return a list of suburb data """
     # Query all outputs
-    results = session.query(Suburbs.postcode, Suburbs.installations, Suburbs.output,
-                            Suburbs.suburb_id, Suburbs.suburb, Suburbs.state, Suburbs.long, Suburbs.lat).all()
+    results = session.query(Suburbs.postcode, Suburbs.suburb_id, Suburbs.suburb,
+                            Suburbs.state, Suburbs.long, Suburbs.lat).all()
 
     session.close()
 
     # Create a dictionary from the row data and append to a list of all_passengers
     all_suburbs = []
-    for postcode, suburb_id, suburb, state, long, lat, *_ in results:
+    for postcode, suburb_id, suburb, state, long, lat in results:
         suburb_dict = {}
         suburb_dict["postcode"] = postcode
         suburb_dict["suburb_id"] = suburb_id
