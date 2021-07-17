@@ -25,6 +25,7 @@ Output = Base.classes.output
 Income = Base.classes.income
 Rebate = Base.classes.rebate
 Suburbs = Base.classes.suburbs
+SGU = Base.classes.sgu
 
 #################################################
 # Flask Setup
@@ -260,6 +261,68 @@ def suburbs():
 
 
 
+@app.route("/api/v1.0/sgu")
+def sgu():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    """Return a list of sgu data """
+    # Query all sgu
+    results = session.query(SGU.postcode,SGU.Installation_2001,SGU.Installation_2002,SGU.Installation_2003,SGU.Installation_2004,SGU.Installation_2005,
+    SGU.Installation_2006,SGU.Installation_2007,SGU.Installation_2008,SGU.Installation_2009,SGU.Installation_2010,SGU.Installation_2011,SGU.Installation_2012,
+    SGU.Installation_2013,SGU.Installation_2014,SGU.Installation_2015,SGU.Installation_2016,SGU.Installation_2017,SGU.Installation_2018,SGU.Installation_2019,
+    SGU.Installation_2020,SGU.Installation_2021,SGU.Output_2001,SGU.Output_2002,SGU.Output_2003,SGU.Output_2004,SGU.Output_2005,SGU.Output_2006,SGU.Output_2007,
+    SGU.Output_2008,SGU.Output_2009,SGU.Output_2010,SGU.Output_2011,SGU.Output_2012,SGU.Output_2013,SGU.Output_2014,SGU.Output_2015,SGU.Output_2016,SGU.Output_2017,
+    SGU.Output_2018,SGU.Output_2019,SGU.Output_2020,SGU.Output_2021,SGU.Installation_Total,SGU.Installation_AVG,SGU.Output_Total,SGU.Output_AVG,SGU.zone,SGU.rating,
+    SGU.annual_prod,SGU.rebate,SGU.Average_total,SGU.Average_salary,SGU.suburb,SGU.state).all()
+
+    session.close()
+
+    # Create a dictionary from the row data and append to a list of all_passengers
+    all_sgu =[]
+    for postcode,Installation_2001,Installation_2002,Installation_2003,Installation_2004,Installation_2005,Installation_2006,Installation_2007,Installation_2008,\
+        Installation_2009,Installation_2010,Installation_2011,Installation_2012,Installation_2013,Installation_2014,Installation_2015,Installation_2016,\
+        Installation_2017,Installation_2018,Installation_2019,Installation_2020,Installation_2021,Output_2001,Output_2002,Output_2003,Output_2004,Output_2005,\
+        Output_2006,Output_2007,Output_2008,Output_2009,Output_2010,Output_2011,Output_2012,Output_2013,Output_2014,Output_2015,Output_2016,Output_2017,Output_2018,\
+        Output_2019,Output_2020,Output_2021,Installation_Total,Installation_AVG,Output_Total,Output_AVG,zone,rating,annual_prod,rebate,Average_total,Average_salary,\
+        suburb,state in results:
+
+        sgu_dict = {}
+        sgu_dict["postcode"] =postcode
+        
+        
+        ins_years ={ 2001: Installation_2001, 2002: Installation_2002, 2003: Installation_2003, 2004: Installation_2004,
+        2005: Installation_2005, 2006: Installation_2006, 2007 : Installation_2007, 2008: Installation_2008, 
+        2009: Installation_2009, 2010: Installation_2010, 2011:Installation_2011, 2012: Installation_2012,
+        2013: Installation_2013, 2014: Installation_2014, 2015: Installation_2015, 2016: Installation_2016,
+        2017: Installation_2017, 2018: Installation_2018, 2019: Installation_2019, 2020: Installation_2020,
+        2021: Installation_2021}
+        ins_dict ={'years': ins_years, 'AVG': Installation_AVG, 'Total': Installation_Total}
+ 
+        sgu_dict["install"] = ins_dict
+
+        out_years ={ 2001: Output_2001, 2002: Output_2002, 2003: Output_2003, 2004: Output_2004,
+        2005: Output_2005, 2006: Output_2006, 2007 : Output_2007, 2008: Output_2008, 
+        2009: Output_2009, 2010: Output_2010, 2011: Output_2011, 2012: Output_2012,
+        2013: Output_2013, 2014: Output_2014, 2015: Output_2015, 2016: Output_2016,
+        2017: Output_2017, 2018: Output_2018, 2019: Output_2019, 2020: Output_2020,
+        2021: Output_2021}
+        out_dict ={'years': out_years, 'AVG': Output_AVG, 'Total': Output_Total}
+ 
+        sgu_dict["output"] = out_dict
+
+        sgu_dict["zone"] =zone
+        sgu_dict["rating"] =rating
+        sgu_dict["annual_prod"] =annual_prod
+        sgu_dict["rebate"] =rebate
+        sgu_dict["Average_total"] =Average_total
+        sgu_dict["Average_salary"] =Average_salary
+        sgu_dict["suburb"] =suburb
+        sgu_dict["state"] =state
+        all_sgu.append(sgu_dict)
+
+
+    return jsonify(all_sgu)
 
 
 if __name__ == '__main__':
