@@ -1,0 +1,40 @@
+/*  Base styles */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+
+.zoom-box {
+  top: 22%; 
+  transform: translate(40%, 100%);
+  position: absolute;
+  margin-top: 20px;
+  padding: 16px;
+  padding-bottom: 3px;
+  font: 16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 9999;
+  text-align: center;
+}
+
+.zoom-button {
+  border-radius: 3px;
+  background-color: rgba(27, 27, 27, 0.2);
+  font-size: 14px Arial, Helvetica, sans-serif;
+  padding: 4px;
+  margin-bottom: 5px;
+  width: 100%;
+  margin-right: 0px;
+  margin-left: 0px;
+  text-align: center;
+}
+
