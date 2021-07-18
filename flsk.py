@@ -338,7 +338,8 @@ def state():
     STATE.Installation_2013,STATE.Installation_2014,STATE.Installation_2015,STATE.Installation_2016,STATE.Installation_2017,STATE.Installation_2018,STATE.Installation_2019,
     STATE.Installation_2020,STATE.Installation_2021,STATE.Output_2001,STATE.Output_2002,STATE.Output_2003,STATE.Output_2004,STATE.Output_2005,STATE.Output_2006,STATE.Output_2007,
     STATE.Output_2008,STATE.Output_2009,STATE.Output_2010,STATE.Output_2011,STATE.Output_2012,STATE.Output_2013,STATE.Output_2014,STATE.Output_2015,STATE.Output_2016,STATE.Output_2017,
-    STATE.Output_2018,STATE.Output_2019,STATE.Output_2020,STATE.Output_2021,STATE.Installation_Total,STATE.Installation_AVG,STATE.Output_Total,STATE.Output_AVG,STATE.rebate_AVG).all()
+    STATE.Output_2018,STATE.Output_2019,STATE.Output_2020,STATE.Output_2021,STATE.Installation_Total,STATE.Installation_AVG,STATE.Output_Total,STATE.Output_AVG,STATE.rebate_AVG,
+    STATE.weekly_income_AVG).all()
 
     session.close()
 
@@ -348,7 +349,7 @@ def state():
         Installation_2009,Installation_2010,Installation_2011,Installation_2012,Installation_2013,Installation_2014,Installation_2015,Installation_2016,\
         Installation_2017,Installation_2018,Installation_2019,Installation_2020,Installation_2021,Output_2001,Output_2002,Output_2003,Output_2004,Output_2005,\
         Output_2006,Output_2007,Output_2008,Output_2009,Output_2010,Output_2011,Output_2012,Output_2013,Output_2014,Output_2015,Output_2016,Output_2017,Output_2018,\
-        Output_2019,Output_2020,Output_2021,Installation_Total,Installation_AVG,Output_Total,Output_AVG,rebate_AVG in results:
+        Output_2019,Output_2020,Output_2021,Installation_Total,Installation_AVG,Output_Total,Output_AVG,rebate_AVG,weekly_income_AVG in results:
 
         state_dict = {}
         state_dict["state"] =state
@@ -375,7 +376,7 @@ def state():
         state_dict["output"] = out_dict
 
         state_dict["rebate_avg"] = rebate_AVG
-
+        state_dict["weekly_income_AVG"] = weekly_income_AVG
 
 
         all_states.append(state_dict)
