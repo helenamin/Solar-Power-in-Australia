@@ -385,5 +385,32 @@ def state():
     return jsonify(all_states)
 
 
+@app.route("/api/v1.0/mapdata")
+def mapData():
+
+    # Create our session (link) from Python to the DB
+        session = Session(engine)
+
+        sel = [Suburbs.suburb, Suburbs.postcode, Suburbs.lat, Suburbs.long, Income.Average_total, Income.Postcode, Rebate.rebate, Rebate.postcode]
+        result1 = session.query(*sel).filter((Suburbs.postcode == Income.Postcode) & (Suburbs.postcode == Rebate.postcode)).all()
+        result1 = pd.DataFrame(result1)
+
+        result2 = pd.DataFrame(session.query(Install.Total, Install.postcode).all())
+        result2.rename(columns= {"Total": "total_installs"}, inplace=True)
+        
+        result3 = pd.DataFrame(session.query(Output.Total, Output.postcode).all())
+        result3.rename(columns= {"Total": "total_output"}, inplace=True)
+        
+        session.close()
+
+        merged = pd.merge(result1, result2, how="left", left_on="Postcode", right_on="postcode")
+        merged.drop(['postcode_x', 'postcode_y'], axis=1, inplace=True)
+
+        merged = pd.merge(merged, result3, how="left", left_on="Postcode", right_on="postcode")
+        merged.drop('Postcode', axis=1, inplace=True)
+
+        return merged.to_json(orient = "records")
+
+
 if __name__ == '__main__':
     app.run(port=5500, debug=True)
