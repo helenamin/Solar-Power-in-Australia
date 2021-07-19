@@ -157,8 +157,12 @@ function buildLinePlot(years,state_data,data_type){
 
     var layout = {
         // title:`States comparison on ${data_type} over years`,
-        xaxis: {title: "Years"},
-        yaxis: {title: "Total installations"}
+        xaxis: {
+          title: "Years"
+      },
+        yaxis: {title: "Total installations",
+        type: 'log'
+      }
       };
 
     Plotly.newPlot(`${data_type} line chart`,data, layout);
@@ -186,8 +190,8 @@ function buildBubblePlot(X,Y,states,S){
       var layout = {
         // title:"Output vs Rebate per state in 2020",
         height:800,
-        xaxis: {title: "Average Rebate"},
-        yaxis: {title: "Total Output in 2020"}
+        xaxis: {title: "Average Rebate ($)"},
+        yaxis: {title: "Total Output (kW) in 2020"}
       };
       
       Plotly.newPlot('Output chart', data,layout);
