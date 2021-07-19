@@ -28,6 +28,7 @@ Rebate = Base.classes.rebate
 Suburbs = Base.classes.suburbs
 SGU = Base.classes.sgu
 STATE = Base.classes.state
+Rdata = Base.classes.rdata
 
 #################################################
 # Flask Setup
@@ -466,6 +467,32 @@ def mapData():
 
         return merged.to_json(orient = "records")
 
+@app.route("/api/v1.0/rdata")
+def rdata():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    """Return a list of income data"""
+    # Query all outputs
+    results = session.query(
+        Rdata.postcode, Rdata.ins_avg, Rdata.ins_total, Rdata.out_avg, Rdata.out_total, Rdata.suburb, Rdata.state).all()
+
+    session.close()
+
+    # Create a dictionary from the row data and append to a list
+    all_rdata = []
+    for postcode, ins_avg, ins_total,out_avg,out_total,suburb,state in results:
+        rdata_dict = {}
+        rdata_dict["postcode"] = postcode
+        rdata_dict["ins_avg"] = ins_avg
+        rdata_dict["ins_total"] = ins_total
+        rdata_dict["out_avg"] = out_avg
+        rdata_dict["out_total"] = out_total
+        rdata_dict["suburb"] = suburb
+        rdata_dict["state"] = state
+        all_rdata.append(rdata_dict)
+
+    return jsonify(all_rdata)
 
 if __name__ == '__main__':
     app.run(port=5500, debug=True)

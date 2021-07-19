@@ -44,27 +44,35 @@
     <div class="col-lg-2">
     <div class="hero__categories">
           <!-- Search Bar -->
-        <input type="search" id="form1" class="form-control" placeholder="Type query"
-    aria-label="Search" />
-    <br>
+          <input type="text" id="search" placeholder="Enter postcode" onchange="callf(this.value);">
+          <!-- <input type="text" id="search" placeholder="Enter postcode"> -->
+          
+          <!-- <button id="filter-btn" type="button">Search</button> -->
     <div class="jumbotron0">
-        <p>Line Plot</p>
-        <img id= "mainvisual" src="visualizations/Fig1.png" alt="Latitude vs Temp graph" title="Latitude vs Temp graph">
-        <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude.</p>
-		</div>
+        <table class="table table-striped">
+          <thead>
+              <th>Postcode Details</th>
+              <br>
+          </thead>
+          <tbody bgcolor="white" ></tbody>
+      </table>
+    </div>
         </div>
         </div>
         <div class="col-lg-5">
             <div class="jumbotron0">
-                <p>Line Plot</p>
-                <img id= "mainvisual" src="visualizations/Fig1.png" alt="Latitude vs Temp graph" title="Latitude vs Temp graph">
-                <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
-		
+              <div id="my_dataviz"></div>
+              <!-- Add 2 buttons -->
+              <button onclick="callf()">Output Info</button>
+              <button onclick="barplot()">Installation Info</button>
+              
+                
+              
                 </div>
         </div>
         <div class="col-lg-5">
             <div class="jumbotron0">
-                <p>Line Plot</p>
+                <p>Line Plot3</p>
                 <img id= "mainvisual" src="visualizations/Fig1.png" alt="Latitude vs Temp graph" title="Latitude vs Temp graph">
                 <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
 		
@@ -75,13 +83,16 @@
         <div class="row justify-content-end">
         <div class="col-lg-10">
                 <div class="jumbotron0">
-                <p>Line Plot</p>
+                <p>Line Plot4</p>
                 <img id= "mainvisual" src="visualizations/Fig1.png" alt="Latitude vs Temp graph" title="Latitude vs Temp graph">
                 <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
             </div>
         </div>
 
   <!-- Optional JavaScript -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/static/js/ray.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

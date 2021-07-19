@@ -1,53 +1,42 @@
-// Load data from hours-of-tv-watched.csv
-d3.json("/api/v1.0/rdata").then(function(mydata) {
+var button = d3.select('#filter-btn');
+button.on('click',psearch())
+// txtbox.on('input',psearch())
 
-  function pcodesearch(pcode){
-    return pcode.postcode === document.getElementById("search").value;
-  }
-  console.log(mydata.find(pcodesearch));
-
-  var result = sum(mydata.ins_total);
-  console.log(result);
-
-
-  console.log(mydata.ins_total);
- 
-  mydata.forEach(function(data) {
-    // data.hours = +data.hours;
-    // console.log("Total Installation:", data.ins_total);
-    // console.log("Average Installation:", data.ins_avg);
-    // console.log("State Total Install:", data.ins_total);
-    // console.log("State Total Install:", data.ins_avg);
-  });
-}).catch(function(error) {
-  console.log(error);
-});
-
-function btnsearch(){
+// Load data from json
+function psearch(){
 
 var postcode=document.getElementById("search").value;
 // console.log(postcode);
 
- d3.csv("rdata.csv").then(function(mydata) {
+ d3.json("/api/v1.0/rdata").then(function(mydata) {
 
     var filtercitydata = mydata.filter(function(d, i) 
     { 
 
       if( d["postcode"] == postcode)
       {
-        return d; 
-        console.log(d);
+        return d ;
+        // console.log(d);
+
       } 
+    })
+// console.log(mydata.ins_total)
+// console.log(d.postcode)
+// create 2 data_set
+var data1 = [
+  {group: "Total Installation", value: filtercitydata[0].ins_total},
+  {group: "Average Installation", value: filtercitydata[0].ins_avg},
+  {group: "State Total Install", value: filtercitydata[0].out_total},
+  {group: "State Average Install", value: filtercitydata[0].out_avg}
+];
 
-      
+var data2 = [
+  {group: "Total Installation", value: filtercitydata[0].ins_total},
+  {group: "Average Installation", value: filtercitydata[0].ins_avg},
+  {group: "State Total Install", value: filtercitydata[0].out_total},
+  {group: "State Average Install", value: filtercitydata[0].out_avg}
+];
 
-});
-
-function pcodesearch(pcode){
-  return pcode.postcode === document.getElementById("search").value;
-}
-
-console.log(mydata.find(pcodesearch));      
 
 // Postcode Details
 d3.select("tbody")
@@ -64,23 +53,6 @@ d3.select("tbody")
             <tr><b>Suburb:</b> ${d.suburb}</tr><br>
             <tr><b>State:</b> ${d.state}</tr>`;
   });
-})
-}
-
-// create 2 data_set
-var data1 = [
-  {group: "Total Installation", value: 5},
-  {group: "Average Installation", value: 15},
-  {group: "State Total Install", value: 25},
-  {group: "State Average Install", value: 50}
-];
-
-var data2 = [
-  {group: "Output Total", value: 35},
-  {group: "Output Average", value: 25},
-  {group: "State Total Output", value: 15},
-  {group: "State Ave Output", value: 5}
-];
 
 
 // set the dimensions and margins of the graph
@@ -147,3 +119,10 @@ function update(data) {
 
 // Initialize the plot with the first dataset
 update(data1)
+
+});
+}
+// function addition(){
+//   return 1+1;
+// }
+// console.log(addition())
