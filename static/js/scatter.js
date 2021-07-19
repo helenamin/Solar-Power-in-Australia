@@ -194,7 +194,7 @@ function makeResponsive() {
                   chartGroup.append("text")
                   .attr("transform", `translate(-75, ${height / 2 }) rotate(-90)`)
                   .attr("class", "axis-label y-label")
-                  .text("Total Output (n)");
+                  .text("Total Output (kW)");
 
 
                 // Variable containing all the axis label properties

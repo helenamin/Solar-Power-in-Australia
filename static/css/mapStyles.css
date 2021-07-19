@@ -2,7 +2,9 @@
 body {
     padding: 0;
     margin: 0;
-  }
+    background-image: url("../../templates/backdrop.jpg") !important;
+    /* background-color: #cccccc !important; */
+}
   
   #map {
     height: 1200px !important;
