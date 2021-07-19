@@ -68,6 +68,7 @@ function init() {
 
         for (i=0;i<years.length;i++){
             years[i] = parseInt(years[i]);
+            // years[i] = Date.parse(years[i]);
         }
 
         console.log(years);        
@@ -78,7 +79,7 @@ function init() {
 
         buildLinePlot(years,state_ins,"Installation");
 
-        buildBubblePlot(rebate_avg.slice(0,8) ,state_output_2020.slice(0,8),states.slice(0,8),sizes.slice(0,8))
+        buildBubblePlot(rebate_avg.slice(0,8) ,state_output_2020.slice(0,8),states.slice(0,8),weekly_income.slice(0,8))
 
 
         buildDonutPlot(total_ins.slice(0,8),states.slice(0,8))
@@ -158,7 +159,8 @@ function buildLinePlot(years,state_data,data_type){
     var layout = {
         // title:`States comparison on ${data_type} over years`,
         xaxis: {
-          title: "Years"
+          title: "Years",
+          type:"category"
       },
         yaxis: {title: "Total installations",
         type: 'log'
@@ -170,7 +172,7 @@ function buildLinePlot(years,state_data,data_type){
 
 function buildBubblePlot(X,Y,states,S){  
 
-    // console.log(states)
+    console.log(S)
 
     // Trace for Bubble Plot
     var trace1 = {
@@ -181,15 +183,20 @@ function buildBubblePlot(X,Y,states,S){
         marker: {
           color: ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f'],
           size: S,
+          sizeref : 30
         //   colorscale: Earth
-        }
+        },
+        hovertemplate: '<b>State</b>: %{text}' +
+                        '<br><b>Average Rebate</b>: $%{x:$,.2f}<br>' +
+                        '<br><b>Output</b>: %{y:,.2f}kW<br>' +
+                        '<b>Weekly Income</b> $%{marker.size}'
       };
       
       var data = [trace1];
       
       var layout = {
         // title:"Output vs Rebate per state in 2020",
-        height:800,
+        height:700,
         xaxis: {title: "Average Rebate ($)"},
         yaxis: {title: "Total Output (kW) in 2020"}
       };
@@ -212,7 +219,7 @@ function buildDonutPlot(V,states){
         text : states,
         hole: 0.5,
         textinfo: 'text',
-        hoverinfo: 'label+percent+name'
+        hoverinfo: 'label+percent'
       }
         var data = [trace];
   
