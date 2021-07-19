@@ -1,0 +1,36 @@
+
+
+stacked bar chart: bars comparing total installations for suburb vs average total 
+installations for suburbs in that state  vs average total installations for nation. 
+Same comparison for output
+
+group,Nitrogen,normal,stress
+banana,12,1,13
+poacee,6,6,33
+sorgho,11,28,12
+triticum,19,6,1
+
+"AVG": 0.19047619047619047, 
+    "Total": 4.0, 
+    "_2001": 0.0, 
+    "_2002": 2.0, 
+    "_2003": 0.0, 
+    "_2004": 1.0, 
+    "_2005": 1.0, 
+    "_2006": 0.0, 
+    "_2007": 0.0, 
+    "_2008": 0.0, 
+    "_2009": 0.0, 
+    "_2010": 0.0, 
+    "_2011": 0.0, 
+    "_2012": 0.0, 
+    "_2013": 0.0, 
+    "_2014": 0.0, 
+    "_2015": 0.0, 
+    "_2016": 0.0, 
+    "_2017": 0.0, 
+    "_2018": 0.0, 
+    "_2019": 0.0, 
+    "_2020": 0.0, 
+    "_2021": 0.0, 
+    "postcode": 0
