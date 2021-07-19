@@ -13,6 +13,8 @@
   <!-- Regular CSS -->
   <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style_ray.css')}}"> -->
 
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   <title>Project Two</title>
 </head>
 
@@ -41,14 +43,41 @@
 <!-- Test -->
     <div class="container">
         <div class="row">
-        <div class="col-lg-12">
-                <div class="jumbotron0">
-                <p>Line Plot</p>
-                <div id ="bubble"></div>
+          <div class="col-lg-12">
+            <h4 style="text-align: center;">Output vs Rebate per state in 2020</h4>
+            <div id ="Output chart"></div>
+            <div class="jumbotron0">
+                <p>Bubble Plot</p>
+
                 <!-- <img id= "mainvisual" src="visualizations/Fig1.png" alt="Latitude vs Temp graph" title="Latitude vs Temp graph"> -->
                 <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
             </div>
-    </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <br><br>
+              <h4 style="text-align: center;">States comparison on Installations</h4><h4 style="text-align: center;">over years</h4>
+              <div id ="Installation line chart"></div>
+              <div class="jumbotron0">
+                  <p>Line Plot</p>
+  
+                  <!-- <img id= "mainvisual" src="visualizations/Fig1.png" alt="Latitude vs Temp graph" title="Latitude vs Temp graph"> -->
+                  <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
+              </div>
+            </div>
+             <div class="col-lg-6">
+              <br><br>
+              <h4 style="text-align: center;">Cumulative Installations in Australian</h4><h4 style="text-align: center;">States over years</h4>
+               <div id ="Installation donut chart"></div>
+               <div class="jumbotron0">
+                   <p>Donut Plot</p>
+   
+                   <!-- <img id= "mainvisual" src="visualizations/Fig1.png" alt="Latitude vs Temp graph" title="Latitude vs Temp graph"> -->
+                   <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
+               </div>
+             </div>
+        </div>
+      </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

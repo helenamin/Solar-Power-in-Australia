@@ -27,6 +27,7 @@ Income = Base.classes.income
 Rebate = Base.classes.rebate
 Suburbs = Base.classes.suburbs
 SGU = Base.classes.sgu
+STATE = Base.classes.state
 
 #################################################
 # Flask Setup
@@ -351,6 +352,7 @@ def sgu():
 
 
     return jsonify(all_sgu)
+
 
 
 if __name__ == '__main__':
