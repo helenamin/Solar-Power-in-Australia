@@ -68,6 +68,7 @@ function init() {
 
         for (i=0;i<years.length;i++){
             years[i] = parseInt(years[i]);
+            // years[i] = Date.parse(years[i]);
         }
 
         console.log(years);        
@@ -158,7 +159,8 @@ function buildLinePlot(years,state_data,data_type){
     var layout = {
         // title:`States comparison on ${data_type} over years`,
         xaxis: {
-          title: "Years"
+          title: "Years",
+          type:"category"
       },
         yaxis: {title: "Total installations",
         type: 'log'
