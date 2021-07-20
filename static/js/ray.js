@@ -31,8 +31,13 @@ function psearch(postcode2){
       {
 
         return d; 
+<<<<<<< HEAD
        } 
       
+=======
+       
+      } 
+>>>>>>> 050754ed34f83ec5d3de4327ab27e71945b94512
 });
 console.log(filtercitydata);   
 buildtable(filtercitydata)
@@ -57,8 +62,9 @@ function barplot(plotdata){
  
 
 
-
-    var plot1 = document.getElementById("search").value;
+    plot1 = "2000"
+    
+    // var plot1 = document.getElementById("search").value;
     
     console.log(plot1);
     var plot1filter = mydata2.filter(function(d, i) 
@@ -184,6 +190,14 @@ console.log(data)
     .remove()
 }
 // Initialize the plot with the first dataset
+<<<<<<< HEAD
+=======
+barplot();
+
+function search2(postcode){
+  console.log(value);
+  d3.json("/api/v1.0/rdata").then(function(mydata3) {
+>>>>>>> 050754ed34f83ec5d3de4327ab27e71945b94512
 
 
 function buildtable(data){

@@ -100,3 +100,34 @@ hr {
 .axis-label:hover {
   font-weight: 600 !important;
 }
+
+#search-header {
+  translate: (0,50);
+  background-color: #eeeeee !important;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  vertical-align: center;
+  height: 50%;
+}
+
+#outer-box {
+  background-color: #eeeeee !important;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+#inner-box {
+  background-color: #ffffff !important;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 40px; 
+  display: inline-block;
+}
+
+#logo {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
