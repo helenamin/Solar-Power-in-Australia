@@ -23,7 +23,7 @@ body {
   padding-bottom: 3px;
   font: 16px Arial, Helvetica, sans-serif;
   background: white;
-  background: rgba(255,255,255,0.8);
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   z-index: 9999;
