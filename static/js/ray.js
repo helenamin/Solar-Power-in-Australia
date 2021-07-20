@@ -1,5 +1,5 @@
 function callf(){
-  var postcode=document.getElementById("search").value;
+  var postcode=document.getElementById("autocomplete").value;
   psearch(postcode);
   // barplot(postcode);
   barplot2(postcode);
@@ -73,7 +73,7 @@ function barplot(plotdata){
 
 
 
-    var plot1 = document.getElementById("search").value;
+    var plot1 = document.getElementById("autocomplete").value;
     
     // console.log(plot1);
     var plot1filter = mydata2.filter(function(d, i) 
@@ -110,7 +110,7 @@ function barplot2(plotdata){
     .entries(mydata3);
     console.log(odata2);
 
-    var plot2 = document.getElementById("search").value;
+    var plot2 = document.getElementById("autocomplete").value;
     console.log(plot2);
     var plot2filter = mydata3.filter(function(d, i) 
     { 
@@ -204,7 +204,7 @@ function search2(postcode){
   console.log(value);
   d3.json("/api/v1.0/rdata").then(function(mydata3) {
 
-  $('#search').on('keyup', function(){
+  $('#autocomplete').on('keyup', function(){
     var value = postcode;
     console.log(value);
 
