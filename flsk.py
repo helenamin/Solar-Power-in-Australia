@@ -414,8 +414,6 @@ def state():
     return jsonify(all_states)
 
 
-<<<<<<< HEAD
-=======
 @app.route("/api/v1.0/mapdata")
 def mapData():
 
@@ -469,6 +467,5 @@ def rdata():
 
     return jsonify(all_rdata)
 
->>>>>>> ray
 if __name__ == '__main__':
     app.run(port=5500, debug=True)
