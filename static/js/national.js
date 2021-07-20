@@ -36,9 +36,9 @@ function init() {
             out_years = st.output.years;
             for (key in ins_years){
                 ins_his.push(ins_years[key]);
-                out_his.push(out_years[key]);
+                out_his.push(out_years[key]/1000);
                 ins += ins_years[key];
-                out += out_years[key];
+                out += out_years[key]/1000;
                 ins_cum_his.push(ins);
                 out_cum_his.push(out);
             }
@@ -186,9 +186,9 @@ function buildBubblePlot(X,Y,states,S){
           sizeref : 30
         //   colorscale: Earth
         },
-        hovertemplate: '<b>State</b>: %{text}' +
-                        '<br><b>Average Rebate</b>: $%{x:$,.2f}<br>' +
-                        '<br><b>Output</b>: %{y:,.2f}kW<br>' +
+        hovertemplate: '<b>State</b>: %{text}<br>'+
+                        '<b>Average Rebate</b>: $%{x:$,.2f}<br>' +
+                        '<b>Output</b>: %{y:,.2f}MWh<br>' +
                         '<b>Weekly Income</b> $%{marker.size}'
       };
       
@@ -198,7 +198,7 @@ function buildBubblePlot(X,Y,states,S){
         // title:"Output vs Rebate per state in 2020",
         height:700,
         xaxis: {title: "Average Rebate ($)"},
-        yaxis: {title: "Total Output (kW) in 2020"}
+        yaxis: {title: "Total Output (MWh) in 2020"}
       };
       
       Plotly.newPlot('Output chart', data,layout);
@@ -235,12 +235,6 @@ function buildDonutPlot(V,states){
               x: 0.5,
               y: 0.5
             }],
-        //   width: 400,
-        //   height: 400,
-        //   margin: { t: 5, r: 5, l: 5, b: 5 },
-        //   font: { color: "black", family: "Arial" },
-        //   shapes: [{line: { color: 'red'},type: 'circle',x0: 0.49,y0: 0.49,x1: 0.51,y1: 0.51,fillcolor: 'red'},
-        //     {line: { color: "red", width: 3 },type: 'line',x0: 0.5,y0:0.5,x1: 0.5,y1: 0.5}],
           showlegend : false
         };
         
