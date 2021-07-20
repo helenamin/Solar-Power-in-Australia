@@ -75,14 +75,14 @@ d3.json(data_url).then((data) => {
             var data = [trace1, trace2];
 // plot layout
             var layout = {
-                title: `Suburb ${selectedSuburb} Performance in KW`,
+                title: `Suburb ${selectedSuburb} Performance in KW & Number of installations`,
                 xaxis: { title: "Year ",position: 0.1 },
                 xaxis2: { title: "Year ",position: 0,overlaying: 'x' },
                 legend: {x: -0.2,y: 1,traceorder: 'normal'},
                 autosize: true,
                 width: 600,
                 height: 650,
-                yaxis: { title: "Output in kW"},
+                yaxis: { title: "Output in kW",titlefont:{color: "red"},tickfont:{color:"red"}},
                 yaxis2:{title:'Installation in Numbers',
                 titlefont: {color: 'rgb(148, 103, 189)'},
                 tickfont: {color: 'rgb(148, 103, 189)'},
