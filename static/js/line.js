@@ -75,7 +75,7 @@ filter.on("change", function() {
                 xaxis2: { title: "Year ",position: 0,overlaying: 'x' },
                 legend: {x: -0.2,y: 1,traceorder: 'normal'},
                 autosize: true,
-                width: 600,
+                width: 1000,
                 height: 650,
                 yaxis: { title: "Output in kW",titlefont:{color: "red"},tickfont:{color:"red"}},
                 yaxis2:{title:'Installation in Numbers',

@@ -40,84 +40,87 @@
   </nav>
   </div>
 <br>
-<!-- Test -->
+<!-- Postcode search -->
   <div class="container">
-    <div class="row">
-    <div class="col-lg-2">
-      <div id="autocomplete" class="autocomplete">
-        <input class="autocomplete-input" />
-        <ul class="autocomplete-result-list"></ul>
+    
+    <div class="row  align-items-center">
+      
+      <div class="col-lg-3">
+        <img src="../static/css/AussieSolar.png" id="logo">
       </div>
+      
+    
+      <div class="col-lg-5 text-center mx-auto" id="search-header">
+        <h1>Enter your postcode to see local solar data</h1>
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="jumbotron0">
-          
-            <!-- ray to add the plot -->.
-            
-        </div>
-    </div>
-    <div class="col-lg-6">
-      <div class="jumbotron0">
-          <h5 class="text-center">Installations/Power Output over Time</h5>
-          <div id="plot1"></div>
-    <div class="hero__categories">
-          <!-- Search Bar -->
-          <input type="text" id="search" placeholder="Enter postcode" onchange="callf(this.value);">
-          <!-- <input type="text" id="search" placeholder="Enter postcode"> -->
-          
-          <!-- <button id="filter-btn" type="button">Search</button> -->
-    <div class="jumbotron0">
-        <table class="table table-striped">
-          <!-- <thead>
-              <th>Postcode Details</th>
-              <br>
-          </thead>
-          <tbody bgcolor="white" ></tbody> -->
-          <tbody id="myTable">
-                
-          </tbody>
-      </table>
-    </div>
-        </div>
-        </div>
-        <div class="col-lg-5">
-            <div class="jumbotron0">
-              <div id="my_dataviz"></div>
-              <!-- Add 2 buttons -->
-              <button onclick="callf()">Output Info</button>
-              <button onclick="barplot()">Installation Info</button>
-              
-                
-              
-                </div>
-        </div>
-        <div class="col-lg-5">
-            <div class="jumbotron0">
-                <p>Line Plot3</p>
-                <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
-		
-                </div>
-        </div>
-    </div>
-    </div>
-  </div>
 
-
-    <div class="container">
-        <div class="row justify-content-end">
-        <div class="col-lg-12">
-            <div id="scatter">
-        <div class="col-lg-10">
-                <div class="jumbotron0">
-                <p>Line Plot4</p>
-                <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
-            </div>
-        </div>
+      <div class="col-lg-2  align-self-center text-center mx-auto">
         
+        <div id="autocomplete" class="autocomplete">
+          <input class="autocomplete-input" />
+          <ul class="autocomplete-result-list"></ul>
+        </div>
+      
+      </div>
+
+
+
+    </div>
+  
+  </div>
+
+
+  <div class="container" id="outer-box">
+      
+    <div class="row">
+    
+      <div class="col-lg-12" id="inner-box">
+      
+        <h5 class="text-center">Installations/Power Output over Time</h5>
+    
+            <!-- LINE PLOT -->
+            <div id="plot1"></div>
+    
+      </div>
+    
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-12" id="inner-box">
+
+           <!-- Search Bar -->
+          <div> 
+            <input type="text" id="search" placeholder="Enter postcode" onchange="callf(this.value);">
+            <table class="table table-striped">
+            <tbody id="myTable">
+            </tbody>
+            </table>
+          </div>  
+
+          <!-- BAR PLOT -->
+          <div id="my_dataviz">
+          <!-- 2 buttons -->
+            <button onclick="callf()">Output Info</button>
+            <button onclick="barplot()">Installation Info</button>
+          </div>
+      
+      </div>
+
+    </div>
+          
+    <div class="row">
+
+      <div class="col-lg-12" id="inner-box">
+            
+           <!--SCATTER PLOT  -->
+          <div id="scatter"></div>
+          <p>These plots were created from a project that analyzed weather in proximity to the equator by latitude. The data was pulled from the OpenWeatherMap API from the data of 520 cities. There are 4 plots shown on this website. </p>
+      </div>
+    
+    </div>
+  
+  </div>      
 
   <!-- ray script -->
   <script src="https://d3js.org/d3.v4.js"></script>

@@ -23,7 +23,7 @@ var p=postcode2;
       if( d["postcode"] == postcode2)
       {
         return d; 
-        console.log(d);
+       
       } 
 });
 
@@ -69,8 +69,9 @@ function barplot(plotdata){
  
 
 
-
-    var plot1 = document.getElementById("search").value;
+    plot1 = "2000"
+    
+    // var plot1 = document.getElementById("search").value;
     
     console.log(plot1);
     var plot1filter = mydata2.filter(function(d, i) 
@@ -195,6 +196,6 @@ console.log(data)
     .remove()
 }
 // Initialize the plot with the first dataset
-// barplot();
+barplot();
 
 
