@@ -1,10 +1,17 @@
-function callf(){
-  var postcode=document.getElementById("autocomplete").value;
+
+function fload(){
+  var firstload = "6000";
+  psearch(firstload);
+  console.log(firstload);
+  barplot2(firstload);
+}
+
+
+function callf(postcode){
+  var postcode=document.getElementById("search").value;
   psearch(postcode);
-  // barplot(postcode);
-  barplot2(postcode);
-  search2(postcode)
   console.log(postcode);
+  barplot2(postcode);
   return postcode;
   }
 
@@ -12,45 +19,23 @@ console.log(callf);
 psearch(callf)
 
 // Load data from json
-
 function psearch(postcode2){
-// console.log(postcode2);
-var p=postcode2;
-// console.log(p);
 
+  
  d3.json("/api/v1.0/rdata").then(function(mydata) {
-
+  // buildtable(mydata);
     var filtercitydata = mydata.filter(function(d, i) 
     { 
 
       if( d["postcode"] == postcode2)
       {
+
         return d; 
-        console.log(d);
-      } 
+       } 
+      
 });
-
-doupdate(filtercitydata);
-
-// Postcode Details
-function doupdate(filterdata){
-  // console.log(filterdata);
-  d3.select("tbody1")
-  .selectAll("tr")
-  .data(filterdata)
-  .enter()
-  .append("tr")
-  .html(function(d) 
-  {
-    return `<tr><b>Postcode:</b> ${d.postcode}</tr><br>
-            <tr><b>Installation Total:</b> ${d.ins_total}</tr><br>
-            <tr><b>Installation Average:</b> ${d.ins_avg}</tr><br>
-            <tr><b>Output Total:</b> ${d.out_total}</tr><br>
-            <tr><b>Output Average:</b> ${d.out_avg}</tr><br>
-            <tr><b>Suburb:</b> ${d.suburb}</tr><br>
-            <tr><b>State:</b> ${d.state}</tr>`;
-  });
-  }
+console.log(filtercitydata);   
+buildtable(filtercitydata)
 
 });
 
@@ -73,9 +58,9 @@ function barplot(plotdata){
 
 
 
-    var plot1 = document.getElementById("autocomplete").value;
+    var plot1 = document.getElementById("search").value;
     
-    // console.log(plot1);
+    console.log(plot1);
     var plot1filter = mydata2.filter(function(d, i) 
     { 
 
@@ -88,7 +73,7 @@ function barplot(plotdata){
         {group: "State Total Install", value: idata1/10000},
         {group: "State Average Install", value: idata2/100}
 ];
-        // console.log(data1);
+        console.log(data1);
         update(data1);
         return data1; 
       } 
@@ -110,7 +95,7 @@ function barplot2(plotdata){
     .entries(mydata3);
     console.log(odata2);
 
-    var plot2 = document.getElementById("autocomplete").value;
+    var plot2 = document.getElementById("search").value;
     console.log(plot2);
     var plot2filter = mydata3.filter(function(d, i) 
     { 
@@ -124,7 +109,7 @@ function barplot2(plotdata){
           {group: "State Total Output", value: odata1/1000},
           {group: "State Average Output", value: odata2/100}
         ];
-        // console.log(data2);
+        console.log(data2);
         update(data2);
         return data2; 
         
@@ -138,17 +123,18 @@ function barplot2(plotdata){
 
 // set the dimensions and margins of the graph
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
+  console.log(svg);
 
 // Initialize the X axis
 var x = d3.scaleBand()
@@ -167,7 +153,7 @@ var yAxis = svg.append("g")
 
 // A function that create / update the plot for a given variable:
 function update(data) {
-// console.log(data)
+console.log(data)
   // Update the X axis
   x.domain(data.map(function(d) { return d.group; }))
   xAxis.call(d3.axisBottom(x))
@@ -198,52 +184,26 @@ function update(data) {
     .remove()
 }
 // Initialize the plot with the first dataset
-// barplot();
 
-function search2(postcode){
-  console.log(value);
-  d3.json("/api/v1.0/rdata").then(function(mydata3) {
 
-  $('#autocomplete').on('keyup', function(){
-    var value = postcode;
-    console.log(value);
+function buildtable(data){
+  console.log(data)
+var table = document.getElementById('myTable')
+table.innerHTML = ''
+for (var i = 0; i < data.length; i++){
+  // var colname = `postcode-${i}`
+  // var colage = `ins_total-${i}`
+  
 
-    // var data = searchtable(value, myArray)
-    // buildtable(data)
-  });
-  
-  // buildtable(myArray);
-  
-  // function searchtable(value, data){
-  //   var filterdata = []
-  
-  //   for (var i =0; i < data.length; i++){
-  //       value = value.toLowerCase()
-  //       var name = data[i].postcode.toLowerCase()
-  
-  //       if (name.includes(value)){
-  //           filterdata.push(data[i])
-  //       }
-  //   }
-  //   return filterdata
-  // }
-  
-  // function buildtable(data){
-  // var table = document.getElementById('myTable')
-  // table.innerHTML = ''
-  // for (var i = 0; i < data.length; i++){
-  //   var colname = `name-${i}`
-  //   var colage = `age-${i}`
-  //   var colbirth = `birth-${i}`
-  
-  //   var row = `<tr><b>Postcode:</b>${data[i].age}</tr><br>
-  //              <tr><b>Installation Total:</b>${data[i].name}</tr>`
-  //   table.innerHTML += row
-  // }
-  // }
-
-});
+  var row = `<tr><b>Postcode: </b>${data[i].postcode}</tr><br>
+             <tr><b>Install Tot: </b>${data[i].ins_total.toFixed(2)}</tr><br>
+             <tr><b>Install Ave:  </b>${data[i].ins_avg.toFixed(2)}</tr><br>
+             <tr><b>Output Tot: </b>${data[i].out_total.toFixed(2)}</tr><br>
+             <tr><b>Output Ave: </b>${data[i].out_avg.toFixed(2)}</tr><br>
+             <tr><b>Suburb: </b>${data[i].suburb}</tr><br>
+             <tr><b>State Tot: </b>${data[i].state}</tr>`
+  table.innerHTML += row
+}
 }
 
-
-
+fload();
