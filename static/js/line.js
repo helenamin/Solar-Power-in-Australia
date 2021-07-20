@@ -73,7 +73,7 @@ d3.json(data_url).then((data) => {
             var trace2 = {x: year1[0],y: value1[0],name:"Installation in numbers",line:{color:'purple',width:2},type: 'line',yaxis: 'y2'};
             
             var data = [trace1, trace2];
-
+// plot layout
             var layout = {
                 title: `Suburb ${selectedSuburb} Performance in KW`,
                 xaxis: { title: "Year ",position: 0.1 },
