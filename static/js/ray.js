@@ -1,7 +1,16 @@
-function callf(){
+
+function fload(){
+  var firstload = "6000";
+  psearch(firstload);
+  console.log(firstload);
+  barplot2(firstload);
+}
+
+
+function callf(postcode){
   var postcode=document.getElementById("search").value;
   psearch(postcode);
-  // barplot(postcode);
+  console.log(postcode);
   barplot2(postcode);
   return postcode;
   }
@@ -11,50 +20,29 @@ psearch(callf)
 
 // Load data from json
 function psearch(postcode2){
-// console.log(postcode2);
-var p=postcode2;
-// console.log(p);
 
+  
  d3.json("/api/v1.0/rdata").then(function(mydata) {
-
+  // buildtable(mydata);
     var filtercitydata = mydata.filter(function(d, i) 
     { 
 
       if( d["postcode"] == postcode2)
       {
+
         return d; 
-        console.log(d);
-      } 
+       } 
+      
 });
-
-doupdate(filtercitydata);
-
-// Postcode Details
-function doupdate(filterdata){
-  // console.log(filterdata);
-  d3.select("tbody")
-  .selectAll("tr")
-  .data(filterdata)
-  .enter()
-  .append("tr")
-  .html(function(d) 
-  {
-    return `<tr><b>Postcode:</b> ${d.postcode}</tr><br>
-            <tr><b>Installation Total:</b> ${d.ins_total}</tr><br>
-            <tr><b>Installation Average:</b> ${d.ins_avg}</tr><br>
-            <tr><b>Output Total:</b> ${d.out_total}</tr><br>
-            <tr><b>Output Average:</b> ${d.out_avg}</tr><br>
-            <tr><b>Suburb:</b> ${d.suburb}</tr><br>
-            <tr><b>State:</b> ${d.state}</tr>`;
-  });
-  }
+console.log(filtercitydata);   
+buildtable(filtercitydata)
 
 });
 
 }
 
 function barplot(plotdata){
-  // console.log(plotdata);
+  console.log(plotdata);
   d3.json("/api/v1.0/rdata").then(function(mydata2) {
 
     var idata1 = d3.nest()
@@ -195,6 +183,26 @@ console.log(data)
     .remove()
 }
 // Initialize the plot with the first dataset
-// barplot();
 
 
+function buildtable(data){
+  console.log(data)
+var table = document.getElementById('myTable')
+table.innerHTML = ''
+for (var i = 0; i < data.length; i++){
+  // var colname = `postcode-${i}`
+  // var colage = `ins_total-${i}`
+  
+
+  var row = `<tr><b>Postcode: </b>${data[i].postcode}</tr><br>
+             <tr><b>Install Tot: </b>${data[i].ins_total.toFixed(2)}</tr><br>
+             <tr><b>Install Ave:  </b>${data[i].ins_avg.toFixed(2)}</tr><br>
+             <tr><b>Output Tot: </b>${data[i].out_total.toFixed(2)}</tr><br>
+             <tr><b>Output Ave: </b>${data[i].out_avg.toFixed(2)}</tr><br>
+             <tr><b>Suburb: </b>${data[i].suburb}</tr><br>
+             <tr><b>State Tot: </b>${data[i].state}</tr>`
+  table.innerHTML += row
+}
+}
+
+fload();
