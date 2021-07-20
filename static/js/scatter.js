@@ -55,7 +55,7 @@ function makeResponsive() {
 
           d3.json("/api/v1.0/rebate").then(function(rebateD) {
             
-            var currentSuburb = 2500
+            var currentSuburb = 6000
 
             filter = d3.select('.autocomplete-input')
             filter.on("change", function() {
@@ -63,8 +63,6 @@ function makeResponsive() {
               transistionChart(0)
               updateLegend()
             });
-
-
 
 
 
@@ -87,7 +85,7 @@ function makeResponsive() {
             var mergedData = mergedData.map((item, i) => Object.assign({}, item, installData[i]));
             var mergedData = mergedData.map((item, i) => Object.assign({}, item, outputData[i]));
 
-            console.log(mergedData)
+            
                 
                 // the currently selected postcode
                 var currentSuburb = 2500

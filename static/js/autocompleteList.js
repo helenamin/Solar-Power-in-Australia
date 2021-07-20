@@ -3,7 +3,7 @@
 
 d3.json("/api/v1.0/install").then(function(installData) {
 
-  console.log(installData)
+  
 
     postcodes = installData.map(d => d.postcode.toString())
     

@@ -1,15 +1,6 @@
 //Define api urls
 var data_url = `/api/v1.0/sgu`
 
-// Initializes the page with a default plot
-
-
-// d3.json(data_url).then((data) => {
-//     console.log(data);
-//     var suburb_list = data.map(su => su.postcode); 
-//     });
-
-// });
 
 filter = d3.select(".autocomplete")
 filter.on("change", function() {
@@ -21,7 +12,6 @@ filter.on("change", function() {
 
 // default value when page lands
 
-    // var defaultID = "800"
     var defaultID = "6000"
     lineChart(defaultID);
 
@@ -41,7 +31,7 @@ filter.on("change", function() {
             
 // OUTPUT
             var sub = data.map(su => su.postcode);
-            console.log(sub);
+            
             var select_sub = data.filter(su=>su.postcode==selectedSuburb);
             
 
