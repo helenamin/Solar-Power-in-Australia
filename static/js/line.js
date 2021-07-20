@@ -77,6 +77,9 @@ d3.json(data_url).then((data) => {
             var layout = {
                 title: `Suburb ${selectedSuburb} Performance in KW`,
                 // xaxis: { title: "Year " },
+                legend: {x: -0.2,y: 1,traceorder: 'normal'},
+                width: 600,
+                height: 650,
                 yaxis: { title: "Output in kW" },
                 yaxis2:{title:'Installation in Numbers',
                 titlefont: {color: 'rgb(148, 103, 189)'},
@@ -84,8 +87,11 @@ d3.json(data_url).then((data) => {
                 overlaying: 'y',
                 side: 'right'}
             };
+            const config = {
+                displayModeBar: false, 
+              };
             
-            Plotly.newPlot('plot1', data, layout);
+            Plotly.newPlot('plot1', data, layout, config);
 
     
 
