@@ -54,7 +54,7 @@ function doupdate(filterdata){
 }
 
 function barplot(plotdata){
-  console.log(plotdata);
+  // console.log(plotdata);
   d3.json("/api/v1.0/rdata").then(function(mydata2) {
 
     var idata1 = d3.nest()

@@ -118,3 +118,22 @@ update(data1)
 
 });
 }
+
+var genderVals = d3.nest().key(function(d) {
+  return d.gender;
+})
+.rollup(function(leaves) {
+  return d3.sum(leaves, function(d) {
+    return d.value;
+  });
+}).entries(data)
+.map(function(d) {
+  return {
+    Gender: d.key,
+    totalValue: d.value
+  };
+});
+
+genderVals.forEach(function(element) {
+console.log(element);
+});

@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+    <title></title>
+</head>
+    <body>
+        <div class="row">
+            <div class="col">
+                <div class="card card-body">
+                    <input id="search" class="form-control" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="column" style="background-color:#FFB695;">
+        <h2>Column 1</h2>
+        <tr>test1</tr><br>
+        <tr>test2</tr>
+    </div>
+        <table class="table table-striped">
+            <tr  class="bg-info">
+                               
+            </tr>
+            <tbody id="myTable">
+                
+            </tbody>
+        </table>
+    </body>
+</html>
+
+<script>
+    var myArray = [
+    {'name':'Michael', 'age':'30', 'birthdate':'11/10/1989'},
+    {'name':'Mila', 'age':'32', 'birthdate':'10/1/1989'},
+    {'name':'Paul', 'age':'29', 'birthdate':'10/14/1990'},
+    {'name':'Dennis', 'age':'25', 'birthdate':'11/29/1993'},
+    {'name':'Tim', 'age':'27', 'birthdate':'3/12/1991'},
+    {'name':'Erik', 'age':'24', 'birthdate':'10/31/1995'},
+]
+    console.log(myArray);
+
+    $('#search').on('keyup', function(){
+        var value = $(this).val()
+        console.log(value);
+        var data = searchtable(value, myArray)
+        buildtable(data)
+    });
+
+    buildtable(myArray);
+
+    function searchtable(value, data){
+        var filterdata = []
+
+        for (var i =0; i < data.length; i++){
+            value = value.toLowerCase()
+            var name = data[i].age.toLowerCase()
+
+            if (name.includes(value)){
+                filterdata.push(data[i])
+            }
+        }
+        return filterdata
+    }
+
+    function buildtable(data){
+    var table = document.getElementById('myTable')
+    table.innerHTML = ''
+    for (var i = 0; i < data.length; i++){
+        var colname = `name-${i}`
+        var colage = `age-${i}`
+        var colbirth = `birth-${i}`
+
+        var row = `<tr><b>Postcode:</b>${data[i].age}</tr><br>
+                   <tr><b>Installation Total:</b>${data[i].name}</tr>`
+        table.innerHTML += row
+    }
+}
+
+</script>
