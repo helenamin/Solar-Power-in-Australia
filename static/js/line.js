@@ -4,25 +4,30 @@ var data_url = `/api/v1.0/sgu`
 // Initializes the page with a default plot
 
 
-d3.json(data_url).then((data) => {
-    console.log(data);
-    var suburb_list = data.map(su => su.postcode);
-    suburb_list.forEach((name) => {
-    var dropdownMenu = d3.select("#selDataset");
-    var newoption = dropdownMenu.append("option");
-    newoption.attr('value', name);
-    newoption.text(name);   
-    selectedSuburb = dropdownMenu.node().value;
-    console.log(selectedSuburb)
-    });
+// d3.json(data_url).then((data) => {
+//     console.log(data);
+//     var suburb_list = data.map(su => su.postcode); 
+//     });
 
+// });
+
+filter = d3.select(".autocomplete")
+filter.on("change", function() {
+    auto = d3.select(".autocomplete-input")
+    currentSuburb = auto.node().value;
+    lineChart(currentSuburb)
 });
+
+
 // default value when page lands
 
-    var defaultID = "800"
-    optionChanged(defaultID);
+    // var defaultID = "800"
+    var defaultID = "6000"
+    lineChart(defaultID);
 
-    // function to trigger the change
+
+
+// function to trigger the change
 
     function optionChanged(selectedSuburb) {
             lineChart(selectedSuburb);
@@ -32,38 +37,38 @@ d3.json(data_url).then((data) => {
 
     function lineChart(selectedSuburb){
         d3.json(data_url).then((data) => {
-            var dropdownMenu = d3.select("#selDataset");
-            selectedID = dropdownMenu.node().value;
+            
+            
 // OUTPUT
             var sub = data.map(su => su.postcode);
             console.log(sub);
             var select_sub = data.filter(su=>su.postcode==selectedSuburb);
-            console.log(select_sub);
+            
 
             value = []
             var valuearray = select_sub.forEach(function(selsub){
                 value.push(Object.values(selsub.output.years));
             });
-            console.log(value);
+            
         
             year = []
             var yer = select_sub.forEach(function(selsub){
                     year.push(Object.keys(selsub.output.years));
             });
-            console.log(year);
+            
 // INSTALL
 
             value1 = []
             var valuearray = select_sub.forEach(function(selsub){
                 value1.push(Object.values(selsub.install.years));
             });
-            console.log(value1);
+            
         
             year1 = []
             var yer = select_sub.forEach(function(selsub){
                     year1.push(Object.keys(selsub.install.years));
             });
-            console.log(year1);
+            
 
             
 // plot details
@@ -75,7 +80,7 @@ d3.json(data_url).then((data) => {
             var data = [trace1, trace2];
 // plot layout
             var layout = {
-                title: `Suburb ${selectedSuburb} Performance in KW & Number of installations`,
+                title: `<b>Postcode:</b> ${selectedSuburb} `,
                 xaxis: { title: "Year ",position: 0.1 },
                 xaxis2: { title: "Year ",position: 0,overlaying: 'x' },
                 legend: {x: -0.2,y: 1,traceorder: 'normal'},
