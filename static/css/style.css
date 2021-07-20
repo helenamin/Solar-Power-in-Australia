@@ -59,7 +59,7 @@ body {
   display: inline;
   font-size: 40px;
   width: 100%;
-  line-height: 1;
+  line-height: 0.5;
   color: rgba(0, 0, 0, 0.8);
   position: absolute;
   text-align: center;
@@ -68,6 +68,11 @@ body {
   top: 30%;
   /* this stops the flickering on-and-off with mouse move */
   pointer-events: none!important; 
+}
+
+hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 /* Currently selected axix */

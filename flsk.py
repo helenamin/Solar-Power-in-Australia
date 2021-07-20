@@ -413,6 +413,7 @@ def state():
 
     return jsonify(all_states)
 
+<<<<<<< HEAD
 
 @app.route("/api/v1.0/mapdata")
 def mapData():
@@ -440,6 +441,8 @@ def mapData():
 
         return merged.to_json(orient = "records")
 
+=======
+>>>>>>> a93dc60b1c40cfc2dac049e255e1c833d0ada332
 @app.route("/api/v1.0/rdata")
 def rdata():
     # Create our session (link) from Python to the DB
@@ -467,5 +470,10 @@ def rdata():
 
     return jsonify(all_rdata)
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> a93dc60b1c40cfc2dac049e255e1c833d0ada332
 if __name__ == '__main__':
     app.run(port=5500, debug=True)
