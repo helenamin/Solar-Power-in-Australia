@@ -3,6 +3,8 @@ function callf(){
   psearch(postcode);
   // barplot(postcode);
   barplot2(postcode);
+  search2(postcode)
+  console.log(postcode);
   return postcode;
   }
 
@@ -10,6 +12,7 @@ console.log(callf);
 psearch(callf)
 
 // Load data from json
+
 function psearch(postcode2){
 // console.log(postcode2);
 var p=postcode2;
@@ -32,7 +35,7 @@ doupdate(filtercitydata);
 // Postcode Details
 function doupdate(filterdata){
   // console.log(filterdata);
-  d3.select("tbody")
+  d3.select("tbody1")
   .selectAll("tr")
   .data(filterdata)
   .enter()
@@ -54,7 +57,7 @@ function doupdate(filterdata){
 }
 
 function barplot(plotdata){
-  // console.log(plotdata);
+  console.log(plotdata);
   d3.json("/api/v1.0/rdata").then(function(mydata2) {
 
     var idata1 = d3.nest()
@@ -73,7 +76,7 @@ function barplot(plotdata){
     
     // var plot1 = document.getElementById("search").value;
     
-    console.log(plot1);
+    // console.log(plot1);
     var plot1filter = mydata2.filter(function(d, i) 
     { 
 
@@ -86,7 +89,7 @@ function barplot(plotdata){
         {group: "State Total Install", value: idata1/10000},
         {group: "State Average Install", value: idata2/100}
 ];
-        console.log(data1);
+        // console.log(data1);
         update(data1);
         return data1; 
       } 
@@ -122,7 +125,7 @@ function barplot2(plotdata){
           {group: "State Total Output", value: odata1/1000},
           {group: "State Average Output", value: odata2/100}
         ];
-        console.log(data2);
+        // console.log(data2);
         update(data2);
         return data2; 
         
@@ -165,7 +168,7 @@ var yAxis = svg.append("g")
 
 // A function that create / update the plot for a given variable:
 function update(data) {
-console.log(data)
+// console.log(data)
   // Update the X axis
   x.domain(data.map(function(d) { return d.group; }))
   xAxis.call(d3.axisBottom(x))
@@ -197,5 +200,51 @@ console.log(data)
 }
 // Initialize the plot with the first dataset
 barplot();
+
+function search2(postcode){
+  console.log(value);
+  d3.json("/api/v1.0/rdata").then(function(mydata3) {
+
+  $('#search').on('keyup', function(){
+    var value = postcode;
+    console.log(value);
+
+    // var data = searchtable(value, myArray)
+    // buildtable(data)
+  });
+  
+  // buildtable(myArray);
+  
+  // function searchtable(value, data){
+  //   var filterdata = []
+  
+  //   for (var i =0; i < data.length; i++){
+  //       value = value.toLowerCase()
+  //       var name = data[i].postcode.toLowerCase()
+  
+  //       if (name.includes(value)){
+  //           filterdata.push(data[i])
+  //       }
+  //   }
+  //   return filterdata
+  // }
+  
+  // function buildtable(data){
+  // var table = document.getElementById('myTable')
+  // table.innerHTML = ''
+  // for (var i = 0; i < data.length; i++){
+  //   var colname = `name-${i}`
+  //   var colage = `age-${i}`
+  //   var colbirth = `birth-${i}`
+  
+  //   var row = `<tr><b>Postcode:</b>${data[i].age}</tr><br>
+  //              <tr><b>Installation Total:</b>${data[i].name}</tr>`
+  //   table.innerHTML += row
+  // }
+  // }
+
+});
+}
+
 
 
