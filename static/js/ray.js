@@ -1,18 +1,9 @@
-
-// filter = d3.select(".autocomplete")
-// filter.on("change", function() {
-//     auto = d3.select(".autocomplete-input")
-//     currentSuburb = auto.node().value;
-//     callf(currentSuburb)
-// });
-
 function fload(){
   var firstload = "6000";
   psearch(firstload);
   console.log(firstload);
   barplot2(firstload);
 }
-
 function callf(postcode){
   var postcode=document.getElementById("search").value;
   psearch(postcode);
