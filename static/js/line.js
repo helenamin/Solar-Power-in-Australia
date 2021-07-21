@@ -64,14 +64,20 @@ filter.on("change", function() {
 // plot details
         
 
-            var trace1 = {x: year[0],y: value[0],name:"Output in KW",line:{color:'red',width:2},type: 'line'};
-            var trace2 = {x: year1[0],y: value1[0],name:"Installation in numbers",line:{color:'purple',width:2},type: 'line',yaxis: 'y2'};
+            // var trace1 = {x: year[0],y: value[0],name:"Output in KW",line:{color:'red',width:2},type: 'line'};
+            // var trace2 = {x: year1[0],y: value1[0],name:"Installation in numbers",line:{color:'purple',width:2},type: 'line',yaxis: 'y2'};
+
+            var trace1 = {x: year[0],y: value[0],name:"Output in KW",stackgroup:'one',line:{color:'red',width:2},
+            type: 'scatter'};
+            var trace2 = {x: year1[0],y: value1[0],name:"Installation in numbers",stackgroup:'one',line:{color:'purple',width:2},
+            type: 'scatter',yaxis: 'y2'};
             
             var data = [trace1, trace2];
 // plot layout
             var layout = {
                 title: `<b>Postcode:</b> ${selectedSuburb} `,
-                xaxis: { title: "Year ",position: 0.1 },
+                // xaxis: { title: "Year ",position: 0.1 },
+                xaxis: { title: "Year ",position: 0 },
                 xaxis2: { title: "Year ",position: 0,overlaying: 'x' },
                 legend: {x: -0.2,y: 1,traceorder: 'normal'},
                 autosize: true,
