@@ -1,7 +1,7 @@
 # Project-2 - Solar Power in Australia: The current state of the nation 
 Project Group 2 
 
-![Solar icon](static/css/sun.jpg)
+![Solar icon](static/css/AussieSolar.png)
 
 ## Table of Contents
 
@@ -13,22 +13,22 @@ Project Group 2
 - [Datasets](#Datasets)
 - [Analysis](#Analysis)
 
-# Project Intro
+## Project Intro
 Solar photovoltaic (‘solar power’) generated 3.1 per cent of Australia’s electricity in 2016-17, the majority of which came from small-scale rooftop installation. More than two million, or 21 percent, of Australian households now have rooftop solar, with a combined capacity exceeding 10 GW. However, there remains huge potential on Australia’s remaining roofs, for the expansion of solar power, especially given our climate.
 
 Federal solar incentives and rebates for solar installation have led to a rapid adoption of this technology in recent years. However,the factors that that lead to consumers adopting this technology, and how that might inform future measures to increase solar,remain less clear.
 
-## Aim
+### Aim
 Create a SQLite database of current and historical data, broken down by postcode, containing solar power installations, power generation, and factors that may influence the uptake of solar (e.g. household income, federal government solar rebates).
 Use this database to create a series of interactive data visualisations that describe the current state of home solar in Australia, as well as identifying areas of unmet potential and factors that may influence homeowner’s willingness to adopt this technology.
 
-## Rationale
+### Rationale
 Potential applications of this project could include:
 
 At a government level, allow the analysis of the rebate schemes success, and direct future initiatives and renewable energy policy.
 At the individual household level, allow consumers to see how their suburb compares to the nation and how solar has changed over time. Such information could promote further adoption of solar and could be used as a marketing tool.
 
-# Structure
+## Structure
 ```
 
 Project-2
@@ -69,11 +69,11 @@ Project-2
 
 ```
 
-# Setup
+## Setup
 
 Link to live interactive dashboard Website : [Solar Power in Australia](http://pg2-solar.herokuapp.com/)
 
-# Datasets
+## Datasets
 | # | Source | Link |
 |-|-|-|
 | 1 | Australian Clean Energy Regulator – 2001-2021 Small Scale Solar Installations Australia | [Installations and Outputs](http://www.cleanenergyregulator.gov.au/RET/Forms-and-resources/Postcode-data-for-small-scale-installations#Historical-data) |
@@ -84,7 +84,7 @@ Link to live interactive dashboard Website : [Solar Power in Australia](http://p
 | 6 | Australian Database of Postcode and Suburb data | [Postcode and Suburb](https://www.matthewproctor.com/australian_postcodes) |
 
 
-# Contributors
+## Contributors
 - [Dale Currigan](https://github.com/dcurrigan)
 - [Helen Amin](https://github.com/helenamin)
 - [Rajesh Nair](https://github.com/rajeshnair1984).
