@@ -3,9 +3,14 @@ var data_url = `/api/v1.0/sgu`
 
 
 // Event handler for submit button
-document.getElementById("submit-button").onclick = function() {
+// document.getElementById("submit-button").onclick = function() {
+//     lineChart(currentPostcode)
+// }
+
+filter = d3.select(".autocomplete")
+filter.on("change", function() {
     lineChart(currentPostcode)
-}
+});
 
 
 // default value when page lands

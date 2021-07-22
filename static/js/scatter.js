@@ -53,7 +53,19 @@ d3.json("/api/v1.0/install").then(function(installD) {
           currentSuburb = currentPostcode
           transistionChart(0)
           updateLegend("Average_total")
-
+          
+          pulseCircle = d3.selectAll(".pulse")
+              
+          // Create event listener to display/hide/move the tooltip
+          pulseCircle.on("mouseover", d => toolTip.show(d, this).style("display", null))
+            .on('mouseout', function() {
+                d3.select(".d3-tip")
+                .transition()
+                .delay(200)
+                .duration(600)
+                .style("opacity",0)
+                .style('pointer-events', 'none')
+                })
         });
 
 
@@ -115,6 +127,10 @@ d3.json("/api/v1.0/install").then(function(installD) {
               .range([legendHeight, 0]);
             }
           
+            
+            books.sort((book1, book2) => {
+              return compareObjects(book1, book2, 'name')
+            })
 
             // Set variables and default datasets to display
             var x_data = "Average_total"
@@ -274,6 +290,7 @@ d3.json("/api/v1.0/install").then(function(installD) {
                 this.parentNode.appendChild(this);
                 });
               };
+
 
               // // Stores the currently selected postcode marker
               sel = []    
@@ -452,7 +469,7 @@ d3.json("/api/v1.0/install").then(function(installD) {
               // Call the tooltip on the chartGroup visualisation
               chartGroup.call(toolTip);
               
-              pulseCircle = d3.selectAll("circle")
+              pulseCircle = d3.selectAll(".pulse")
               
               // Create event listener to display/hide/move the tooltip
               pulseCircle.on("mouseover", d => toolTip.show(d, this).style("display", null))
