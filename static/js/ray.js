@@ -41,8 +41,8 @@ function barplot(plotdata){
     .rollup(function(v) { return d3.sum(v, function(d) { return d.ins_avg; }); })
     .entries(mydata2);
     console.log(idata2);
-    var plot1 = document.getElementById("search").value;
-    console.log(plot1);
+    // var plot1 = document.getElementById("search").value;
+    // console.log(plot1);
     var plot1filter = mydata2.filter(function(d, i)
     {
       if( d["postcode"] == currentPostcode)
