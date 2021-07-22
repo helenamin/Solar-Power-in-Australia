@@ -9,9 +9,7 @@ Project Group 2
 - [Project Intro](#Project-Intro)
 - [Structure](#Project-Structure)
 - [Setup](#Setup)
-- [Instructions](#instructions)
 - [Datasets](#Datasets)
-- [Analysis](#Analysis)
 
 ## Project Intro
 Solar photovoltaic (‘solar power’) generated 3.1 per cent of Australia’s electricity in 2016-17, the majority of which came from small-scale rooftop installation. More than two million, or 21 percent, of Australian households now have rooftop solar, with a combined capacity exceeding 10 GW. However, there remains huge potential on Australia’s remaining roofs, for the expansion of solar power, especially given our climate.
@@ -50,7 +48,7 @@ Project-2
 |       |__ ...                         # List of js files
 |
 |__ templates                           # Directory for flask webpages
-|   |__ about.html
+|   |__about.html
 |   |__index.html
 |   |__map.html
 |   |__national.html

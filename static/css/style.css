@@ -115,11 +115,11 @@ hr {
 
 #outer-box {
   background-color: #eeeeee !important;
-  padding: 50px;
+  padding: 50px !important;
   border-radius: 10px;
 }
 
-#inner-box {
+.inner-box {
   background-color: #ffffff !important;
   padding: 10px;
   border-radius: 10px;
@@ -129,5 +129,52 @@ hr {
 
 #logo {
   margin-top: 0px !important;
-  margin-bottom: 0px !important;
+  margin-bottom: 20px !important;
+  width: 270px;
+  height: 230px;
+}
+
+#submit-button {
+  font-weight: 600;
+  background-color: #eeeeee !important;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  font-size: large;
+  text-align: center;
+  box-shadow: 0px 5px 0px #999;
+  position: relative;
+  top: 0px;
+  transition: all ease 0.3s;
+}
+#submit-button:active {
+  box-shadow: 0 1px 0 #999;
+  top: 3px;
+  border: none
+}
+
+.table-div {
+  padding-left: 100px !important;
+}
+
+.nav-item {
+  font-weight: 600;
+}
+
+.scatter-text {
+  margin-left: 100px !important;
+  margin-right: 100px;
+}
+
+#about-logo {  
+  width: 270px;
+  height: 230px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -2,12 +2,10 @@
 var data_url = `/api/v1.0/sgu`
 
 
-filter = d3.select(".autocomplete")
-filter.on("change", function() {
-    auto = d3.select(".autocomplete-input")
-    currentSuburb = auto.node().value;
-    lineChart(currentSuburb)
-});
+// Event handler for submit button
+document.getElementById("submit-button").onclick = function() {
+    lineChart(currentPostcode)
+}
 
 
 // default value when page lands

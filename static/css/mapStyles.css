@@ -2,12 +2,11 @@
 body {
     padding: 0;
     margin: 0;
-    background-image: url("../../templates/backdrop.jpg") !important;
-    /* background-color: #cccccc !important; */
+
 }
   
   #map {
-    height: 1200px !important;
+    height: 1100px !important;
     width: 1600px !important;
     text-align: center;
     position: relative;
@@ -82,7 +81,7 @@ width: auto;
 
 /* Title Styles */
 .title-text {
-    left: 35%;
+    left: 30%;
     /* transform: translate(-50%, 0%); */
     position: absolute;
     margin-top: 20px;

@@ -1,15 +1,17 @@
+// Global variable across javascript files that holds currently selected postcode
+currentPostcode = "6000"
+
 function fload(){
-  var firstload = "6000";
-  psearch(firstload);
-  console.log(firstload);
-  barplot2(firstload);
+  psearch(currentPostcode);
+  console.log(currentPostcode);
+  barplot2(currentPostcode);
 }
 function callf(postcode){
-  var postcode=document.getElementById("search").value;
-  psearch(postcode);
-  console.log(postcode);
-  barplot2(postcode);
-  return postcode;
+  // var postcode=document.getElementById("search").value;
+  psearch(currentPostcode);
+  console.log(currentPostcode);
+  barplot2(currentPostcode);
+  return currentPostcode;
   }
 console.log(callf);
 psearch(callf)
@@ -19,7 +21,7 @@ function psearch(postcode2){
   // buildtable(mydata);
     var filtercitydata = mydata.filter(function(d, i)
     {
-      if( d["postcode"] == postcode2)
+      if( d["postcode"] == currentPostcode)
       {
         return d;
        }
@@ -43,7 +45,7 @@ function barplot(plotdata){
     console.log(plot1);
     var plot1filter = mydata2.filter(function(d, i)
     {
-      if( d["postcode"] == plot1)
+      if( d["postcode"] == currentPostcode)
       {
         console.log(d);
         var data1 = [
@@ -70,8 +72,8 @@ function barplot2(plotdata){
     .rollup(function(v) { return d3.sum(v, function(d) { return d.out_avg; }); })
     .entries(mydata3);
     console.log(odata2);
-    var plot2 = document.getElementById("search").value;
-    console.log(plot2);
+    // var plot2 = document.getElementById("search").value;
+    // console.log(plot2);
     var plot2filter = mydata3.filter(function(d, i)
     {
       if( d["postcode"] == plotdata)
@@ -161,3 +163,11 @@ for (var i = 0; i < data.length; i++){
 }
 }
 fload();
+
+filter = d3.select(".autocomplete")
+filter.on("change", function() {
+    console.log("working")
+    auto = d3.select(".autocomplete-input")
+    currentPostcode = auto.node().value;
+    callf()
+});
