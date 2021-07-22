@@ -53,21 +53,9 @@ d3.json("/api/v1.0/install").then(function(installD) {
           currentSuburb = currentPostcode
           transistionChart(0)
           updateLegend("Average_total")
-          
-          pulseCircle = d3.selectAll(".pulse")
-              
-          // Create event listener to display/hide/move the tooltip
-          pulseCircle.on("mouseover", d => toolTip.show(d, this).style("display", null))
-            .on('mouseout', function() {
-                d3.select(".d3-tip")
-                .transition()
-                .delay(200)
-                .duration(600)
-                .style("opacity",0)
-                .style('pointer-events', 'none')
-                })
-        });
 
+              
+        })
 
 
         // Select just the relevant columns and rename 
