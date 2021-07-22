@@ -127,10 +127,6 @@ d3.json("/api/v1.0/install").then(function(installD) {
               .range([legendHeight, 0]);
             }
           
-            
-            books.sort((book1, book2) => {
-              return compareObjects(book1, book2, 'name')
-            })
 
             // Set variables and default datasets to display
             var x_data = "Average_total"
