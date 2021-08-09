@@ -1,4 +1,4 @@
-# Project-2 - Solar Power in Australia: The current state of the nation 
+# Solar Power in Australia: The current state of the nation 
 Project Group 2 
 
 ![Solar icon](static/css/AussieSolar.png)
