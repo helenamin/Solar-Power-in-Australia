@@ -69,7 +69,7 @@ Project-2
 
 ## Setup
 
-Link to live interactive dashboard Website : [Solar Power in Australia](http://pg2-solar.herokuapp.com/)
+Link to live interactive dashboard Website : [Solar Power in Australia](http://https://solarpoweraustralia-ha.herokuapp.com/)
 
 ## Datasets
 | # | Source | Link |
